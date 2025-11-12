@@ -22,7 +22,7 @@ def generate_summary(summarizer, text: str, ratio: float = 0.2) -> str:
 
 def main():
     parser = argparse.ArgumentParser(description="Vietnamese ETS with bert-extractive-summarizer")
-    parser.add_argument("--data", type=str, required=True,
+    parser.add_argument("--data", type=str, required=False, default = 'data/VietnameseMDS.csv',
                         help="Path to CSV (text, human_summary_1, human_summary_2, cluster)")
     parser.add_argument("--model", type=str, default="phobert-base",
                         choices=list(config.MODEL_MAP.keys()),
