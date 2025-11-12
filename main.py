@@ -61,7 +61,7 @@ def main():
 
         # Generate
         gen_sum = generate_summary(summarizer, raw_text, ratio=args.ratio)
-
+        print(gen_sum)
         # ROUGE
         r1, r2, rl = evaluate_rouge(gen_sum, human_sums)
 
