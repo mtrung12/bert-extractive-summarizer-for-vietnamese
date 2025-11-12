@@ -18,7 +18,7 @@ def count_syllables(text: str) -> int:
 def generate_summary(summarizer, text: str, ratio: float = 0.2) -> str:
     sentences = summarizer(text, ratio=ratio)
     print(sentences)
-    return " ".join(sentences)
+    return "".join(sentences)
 
 
 def main():
