@@ -5,7 +5,7 @@ from pathlib import Path
 import config
 from data_loader import load_and_preprocess_data
 from evaluate import evaluate_rouge
-from summarizer import build_summarizer
+from bert_summarizer import build_summarizer
 import torch
 from vnnlpcore import mvn_word_tokenize
 import os
