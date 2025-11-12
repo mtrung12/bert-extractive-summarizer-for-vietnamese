@@ -48,7 +48,6 @@ def main():
 
     summarizer = build_summarizer(hf_model_name,
                                   hidden=-2,
-                                  reduce="mean",
                                   device=config.DEVICE)
     print(f"Summarizer ready – model: {hf_model_name} on {config.DEVICE}")
     perf_records = []
