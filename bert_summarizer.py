@@ -7,15 +7,18 @@ from typing import List
 
 
 class VietnameseSentenceHandler(SentenceHandler):
-    def __init__(self, min_length: int = 20, max_length: int = 500):
+    def __init__(self, min_length: int = 5, max_length: int = 500):
         self.min_length = min_length
         self.max_length = max_length
 
-    def process(self, body: str, **__) -> List[str]:
+    def process(self, body: str, min_length: int = None, max_length: int = None, **__) -> List[str]:
+        min_length = min_length if min_length is not None else self.min_length
+        max_length = max_length if max_length is not None else self.max_length
+
         sents = sent_tokenize(body)
         return [
             s.strip() for s in sents
-            if self.min_length <= len(s) <= self.max_length
+            if min_length <= len(s) <= max_length
         ]
 
 
