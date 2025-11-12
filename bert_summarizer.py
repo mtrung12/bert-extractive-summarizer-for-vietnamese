@@ -6,7 +6,7 @@ from summarizer.text_processors.sentence_handler import SentenceHandler
 from transformers import AutoConfig, AutoTokenizer, AutoModel
 from underthesea import sent_tokenize
 from typing import List
-
+from vnnlpcore import mvn_word_tokenize
 
 class VietnameseSentenceHandler(SentenceHandler):
     def __init__(self, min_length: int = 5, max_length: int = 1000):
@@ -21,7 +21,8 @@ class VietnameseSentenceHandler(SentenceHandler):
 
 
 def chunk_sentence(sentence: str, tokenizer, max_length=256, stride=128):
-    tokens = tokenizer.tokenize(sentence)
+    segmented_sentence = mvn_word_tokenize(sentence)
+    tokens = tokenizer.tokenize(segmented_sentence)
     if len(tokens) <= max_length - 2:
         return [sentence]
     chunks = []
