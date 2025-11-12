@@ -66,7 +66,7 @@ def build_summarizer(model_name: str = "vinai/phobert-base", hidden: int = -2, d
     summarizer = Summarizer(
         custom_model=model,
         custom_tokenizer=tokenizer,
-        sentence_handler=VietnameseSentenceHandler(min_length=20, max_length=1000),
+        sentence_handler=VietnameseSentenceHandler(min_length=5, max_length=1000),
         hidden=hidden,
         reduce_option="mean"
     )
