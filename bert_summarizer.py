@@ -24,7 +24,7 @@ def chunk_sentence(sentence: str, tokenizer, max_length=256, stride=128):
     segmented_sentence = mvn_word_tokenize(sentence)
     tokens = tokenizer.tokenize(segmented_sentence)
     if len(tokens) <= max_length - 2:
-        return [sentence]
+        return [segmented_sentence]
     chunks = []
     start = 0
     while start < len(tokens):
